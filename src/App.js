@@ -44,7 +44,7 @@ function App() {
                             pattern: /^[789]\d{9}$/
                         })}/>
           </div>
-          {errors.phone && <p style={{color: "red"}}>Please check the Phone no.</p>}
+          {errors.phone && <p style={{color: "red"}}>The Phone no. must be 10 digit long.</p>}
 
           <div class="form-group">
             <label for="password">Password</label>
@@ -53,7 +53,7 @@ function App() {
                             pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/
                         })}/>
           </div>
-          {errors.password && <p style={{color: "red"}}>Please check the password</p>}
+          {errors.password && <p style={{color: "red"}}>Password must contain one capital letter, one small letter, one number and must be 6 - 15 chars long.</p>}
 
           <div class="form-group">
             <label for="password2">Confirm Password</label>
@@ -61,7 +61,6 @@ function App() {
                             required: true,
                             validate: (val: string) => {
                               if (watch('password') != val) {
-                                console.log("Passwords do not match!")
                                 return "Your passwords do no match";
                               }
                             },
