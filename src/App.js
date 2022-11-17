@@ -41,7 +41,7 @@ function App() {
             <label for="phone">Mobile No.</label>
             <input type="phone" name="phone" id="phone" {...register("phone", {
                             required: true,
-                            pattern: /[7-9]{1}[0-9]{9}/
+                            pattern: /^[789]\d{9}$/
                         })}/>
           </div>
           {errors.phone && <p style={{color: "red"}}>Please check the Phone no.</p>}
