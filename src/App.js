@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useForm } from "react-hook-form";
@@ -7,9 +8,14 @@ function App() {
 
   const { register, watch, handleSubmit, formState: { errors } }= useForm();
 
+  const captchaRef = useRef(null);
+
+
   const onSubmit = (data) => {
     console.log(data);
   }
+
+  
 
   return (
     <div id="container">
@@ -70,7 +76,7 @@ function App() {
           {errors.confirmPassword && errors.confirmPassword.type === "validate" && <p  style={{color: "red"}}>Passwords do not match</p>}
 
          
-          <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY}/>
+          <ReCAPTCHA ref={captchaRef} sitekey={process.env.REACT_APP_SITE_KEY}/>
            
 
           <button type="submit" className="btn">Sign Up</button>
