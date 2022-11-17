@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useForm } from "react-hook-form";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function App() {
 
@@ -67,6 +68,10 @@ function App() {
                         })}/>
           </div>
           {errors.confirmPassword && errors.confirmPassword.type === "validate" && <p  style={{color: "red"}}>Passwords do not match</p>}
+
+         
+          <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY}/>
+           
 
           <button type="submit" className="btn">Sign Up</button>
           <p className="bottom-text">
