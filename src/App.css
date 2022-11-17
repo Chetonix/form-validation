@@ -1,38 +1,137 @@
-.App {
+* {
+  /* 
+  -May want to add "border-box for "box-sizing so padding does not affect width
+  -Reset margin and padding 
+ */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  /* 
+    -Background color is #344a72
+  */
+  background-color: #344a72;
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  /* 
+  Underlined links are ugly :)
+ */
+ text-decoration: none;
+}
+
+#container {
+  /* 
+  -Remember, margin: auto on left and right will center a block element 
+  -I would also set a "max-width" for responsiveness
+  -May want to add some padding
+  */
+
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 100px;
+}
+
+.form-wrap {
+  /* 
+    This is the white area around the form and heading, etc
+  */
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+
+.form-wrap h1,
+.form-wrap p {
+  /* 
+    May want to center these
+  */
   text-align: center;
+  margin-bottom: 15px;
+  padding-top: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-wrap .form-group {
+  /* 
+    Each label, input is wrapped in .form-group
+  */
+  /* padding: 10px 20px; */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-wrap .form-group label {
+  /* 
+    Label should be turned into a block element
+  */
+  display: block;
+  font-weight: 100;
+  margin-bottom: 6px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.form-wrap .form-group input {
+  /* 
+    Inputs should reach accross the .form-wrap 100% and have some padding
+  */
+  width: 100%;
+  /* padding-left: 30px;
+  padding-right: 30px; */
+  padding-left: 3px;
+  height: 26px;
+}
+
+.form-wrap button {
+  /* 
+    Button should wrap accross 100% and display as block
+    Background color for button is #49c1a2
+  */
+  background-color: #49c1a2;
+  width: 100%;
+  display: block;
+  height: 32px;
   color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.form-wrap button:hover {
+  /* 
+    Hover background color for button is #37a08e
+  */
+  background-color: #37a08e;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-wrap .bottom-text {
+  /* 
+    Bottom text is smaller
+  */
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+}
+
+footer {
+  /* 
+  Should be centered
+ */
+ text-align: center;
+ margin: 3px;
+ color: white;
+ font-size: 0.8rem;
+}
+
+footer a {
+  /* 
+    Footer link color is #49c1a2
+  */
+  color: #49c1a2;
 }
