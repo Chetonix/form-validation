@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 function App() {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, watch, handleSubmit, formState: { errors } }= useForm();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -59,10 +59,15 @@ function App() {
             <label for="password2">Confirm Password</label>
             <input type="password" name="password2" id="password2"  {...register("confirmPassword", {
                             required: true,
-                            pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/
+                            validate: (val: string) => {
+                              if (watch('password') != val) {
+                                console.log("Passwords do not match!")
+                                return "Your passwords do no match";
+                              }
+                            },
                         })}/>
           </div>
-          {errors.confirmPassword && <p style={{color: "red"}}>Please check the password</p>}
+          {errors.confirmPassword && errors.confirmPassword.type === "validate" && <p  style={{color: "red"}}>Passwords do not match</p>}
 
           <button type="submit" class="btn">Sign Up</button>
           <p class="bottom-text">
